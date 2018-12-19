@@ -1,0 +1,1 @@
+chrome-extension://iibninhmiggehlcdolcilmhacighjamp/js/third_party/jquery-2.1.1-simplified.min.js
