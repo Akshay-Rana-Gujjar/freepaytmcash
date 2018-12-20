@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" name="file" id="file" onchange="upload()">
+    <script src="sha1.min.js"></script>
+    <script>
+        function upload() {
+            var cloud_name = "akshay-rana-gujjar";
+            var resource_type = "image";
+            var api_key = "974282633248779";
+            var api_secret = "tRg9lpe_U5nyx56FiMfGe7Wg9a0";
+            var url = `https://api.cloudinary.com/v1_1/${cloud_name}/${resource_type}/upload`
+            var file = document.getElementById("file").files[0];
+
+            
+            var reader = new FileReader();
+            if (file) {
+                var a = reader.readAsDataURL(file); //reads the data as a URL
+                console.log(reader.result);
+                
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                      if (this.readyState == 4 && this.status == 200) {
+                       document.getElementById("demo").innerHTML = this.responseText;
+                      }
+                    };
+                    xhttp.open("POST", url, true);
+                    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    //xhttp.send("fname=Henry&lname=Ford");
+                    xhttp.send();
+                  
+
+            }
+        }
+    </script>
+</body>
+
+</html>
